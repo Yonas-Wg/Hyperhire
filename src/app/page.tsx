@@ -21,20 +21,26 @@ const HomePage = async () => {
 
   return (
     <>
-    <div className="flex flex-col min-h-screen" style={{
-      background: `linear-gradient(151.17deg, rgba(38, 194, 185, 0.8) 8.69%, rgba(40, 139, 231, 0.8) 86.06%), url('/assets/hyperhire.png')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      maxWidth: '2220px',
-      margin: '0 auto', 
-    }}>
-      <Header />
-      <Main />
-      <UserCard />
-     
-    </div>
-     <Footer />
-     </>
+      <div
+        className="flex flex-col"
+        style={{
+          width: '100vw', // Full viewport width
+          height: '100vh', // Full viewport height
+          background: `linear-gradient(151.17deg, rgba(38, 194, 185, 0.8) 8.69%, rgba(40, 139, 231, 0.8) 86.06%), url('/assets/hyperhire.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          margin: '0', // Remove margin
+          overflowX: 'hidden', 
+          overflowY: 'auto',
+          boxSizing: 'border-box', // Include padding/borders in width/height
+        }}
+      >
+        <Header />
+        <Main />
+        <UserCard />
+      </div>
+      <Footer />
+    </>
   );
 };
 

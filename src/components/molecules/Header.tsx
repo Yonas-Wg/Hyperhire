@@ -31,7 +31,7 @@ const Header = () => {
      // backgroundColor: '#282c34',
       padding: '0 20px'
     }}>
-      <div className="relative w-full h-full overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden cursor-pointer">
         <svg
           width="31.28"
           height="21"
@@ -67,7 +67,8 @@ const Header = () => {
         left: '3.03%',
         top: '-9.49%',
         fontSize: '24px',
-        color: '#fff'
+        color: '#fff',
+        cursor:'pointer',
       }}>
         hyperhire
       </h1>

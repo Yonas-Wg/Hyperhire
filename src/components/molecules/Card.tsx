@@ -1,9 +1,44 @@
-import React from 'react';
-import { Box, Typography, Avatar, Tooltip } from '@mui/material';
+'use client'; // Ensures the component runs on the client-side
+
+import React, { useState } from 'react';
+import { Box, Typography, Avatar , Tooltip} from '@mui/material';
+import { KeyboardArrowRight as KeyboardArrowRightIcon, KeyboardArrowLeft as KeyboardArrowLeftIcon } from '@mui/icons-material';
 
 const UserCard: React.FC = () => {
-  return (
-    <div>
+  const userCards = [
+    {
+      avatar: '/assets/card1.png',
+      name: ' Abhishek Gupta',
+      role: '마케팅 · 2y+',
+      skills: ['마케팅 콘텐츠 제작', '인스타그램 관리', '트위터 관리'],
+    },
+    {
+      avatar: '/assets/card1.png',
+      name: 'Abhishek Gupta',
+      role: '  마케팅 · 2y+',
+      skills: ['마케팅 콘텐츠 제작', '인스타그램 관리', '트위터 관리', '블로그 글 작성'],
+    },
+    {
+      avatar: '/assets/card1.png',
+      name: 'Abhishek Gupta',
+      role: ' 마케팅 · 2y+',
+      skills: ['마케팅 콘텐츠 제작', '인스타그램 관리', '블로그 글 작성'],
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(1);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % userCards.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + userCards.length) % userCards.length);
+  };
+
+  const renderCard = (user: any, isMiddle: boolean) => {
+    return (
+<>
 <Tooltip
         title="This is the user's information"
         arrow
@@ -11,7 +46,7 @@ const UserCard: React.FC = () => {
         TransitionProps={{ timeout: 500 }} 
         sx={{ position: 'relative' }}
       >
-        <div className="absolute w-[160px] h-[43px] left-[1327.76px] top-[121px] flex flex-row items-center p-2 gap-2 bg-[#fff] rounded-lg">
+        <div className="absolute w-[160px] h-[43px] left-[860.76px] top-[-25px] flex flex-row items-center p-2 gap-2 bg-[#fff] rounded-lg">
           <div className="relative">
             <svg
               className="w-[30px] h-[30px]"
@@ -53,15 +88,14 @@ const UserCard: React.FC = () => {
         </div>
       </Tooltip>
 
-
-      {/* First Card */}
       <Box
+        key={user.name}
         sx={{
-          position: 'absolute',
-          width: '259.81px',
-          height: '366.8px',
-          left: '1150px',
-          top: '200px',
+          width: isMiddle ? '300px' : '250px',
+          height: isMiddle ? '400px' : '350px',
+          zIndex: isMiddle ? '1' : '0',
+          margin: '0 -65px', 
+          paddingLeft:'20px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -69,17 +103,17 @@ const UserCard: React.FC = () => {
           backgroundColor: 'white',
           borderRadius: '16px',
           boxShadow: 2,
-          p: 2,
-          mt:2,
+          transition: 'all 0.3s ease',
         }}
       >
         <Avatar
-          src="/assets/card1.png" 
-          alt="Abhishek Gupta"
+          src={user.avatar}
+          alt={user.name}
           sx={{
-            width: '108px',
-            height: '108px',
+            width: isMiddle ? '120px' : '80px',
+            height: isMiddle ? '120px' : '80px',
             borderRadius: '50%',
+            transition: 'all 0.3s ease',
           }}
         />
         <Typography
@@ -87,368 +121,75 @@ const UserCard: React.FC = () => {
           sx={{
             fontFamily: 'Poppins',
             fontWeight: 'bold',
-            fontSize: '21.6471px',
+            fontSize: isMiddle ? '24px' : '18px',
             lineHeight: '32px',
             textAlign: 'center',
-            color:'black',
+            color: 'black',
             mt: 2,
           }}
         >
-          Abhishek Gupta
+          {user.name}
         </Typography>
         <Typography
           variant="body2"
           sx={{
             fontFamily: 'Poppins',
             fontWeight: 900,
-            fontSize: '14.4314px',
+            fontSize: isMiddle ? '16px' : '12px',
             lineHeight: '22px',
             textAlign: 'center',
             color: '#4A77FF',
           }}
         >
-          마케팅 · 2y+
+          {user.role}
         </Typography>
 
-        {/* Skill Boxes */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            padding: '3.60784px 10.8235px',
-            gap: '9.02px',
-            width: '153.65px',
-            height: '29.22px',
-            border: '0.901961px solid #82BFD5',
-            borderRadius: '5.41177px',
-            mt: 1,
-            color:'black',
-          }}
-        >
-          <Typography variant="body2">마케팅 콘텐츠 제작</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            padding: '3.60784px 10.8235px',
-            gap: '9.02px',
-            width: '133.65px',
-            height: '29.22px',
-            border: '0.901961px solid #82BFD5',
-            borderRadius: '5.41177px',
-            mt: 1,
-            ml: 5,
-            color:'black',
-          }}
-        >
-          <Typography variant="body2">인스타그램 관리</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            padding: '3.60784px 10.8235px',
-            gap: '9.02px',
-            width: '133.65px',
-            height: '29.22px',
-            border: '0.901961px solid #82BFD5',
-            borderRadius: '5.41177px',
-            mt: 1,
-            ml: -7,
-            color:'black',
-          }}
-        >
-          <Typography variant="body2">트위터 관리</Typography>
-        </Box>
+        {/* Skills */}
+        {user.skills.map((skill: string, index: number) => (
+          <Box
+            key={index}
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'flex-start',
+              padding: '3.6px 10.8px',
+              gap: '9.02px',
+              width: '153.65px',
+              height: '29.22px',
+              border: '0.9px solid #82BFD5',
+              borderRadius: '5.41px',
+              mt: 1,
+              color: 'black',
+              ml: 5,
+              mr: 5,
+            }}
+          >
+            <Typography variant="body2">{skill}</Typography>
+          </Box>
+        ))}
+      </Box>
+      </>
+    );
+  };
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '500px', marginLeft: '400px', marginTop:'180px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      {/* Navigation Arrows */}
+      <Box sx={{ position: 'absolute', left: '550px', cursor: 'pointer' }} onClick={handlePrev}>
+        <KeyboardArrowLeftIcon sx={{ fontSize: 60, color: '#fff' }} />
+      </Box>
+      <Box sx={{ position: 'absolute', right: '550px', cursor: 'pointer' }} onClick={handleNext}>
+        <KeyboardArrowRightIcon sx={{ fontSize: 60, color: '#fff' }} />
       </Box>
 
-      {/* Second Card (Middle Card) */}
-      <Box
-        sx={{
-          position: 'absolute',
-          width: '259.81px',
-          height: '400.8px',
-          left: '1290px', 
-          top: '200px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: 'white',
-          borderRadius: '16px',
-          boxShadow: 2,
-          p: 2,
-          zIndex: 1,
-        }}
-      >
-      <Box sx={{ position: 'relative', display: 'inline-block' }}>
-      <Avatar
-        src="/assets/card1.png" 
-        alt="John Doe"
-        sx={{
-          width: '108px',
-          height: '108px',
-          borderRadius: '50%',
-        }}
-      />
-      <Box
-        component="img"
-        src="/assets/flag.png"
-        alt="Flag"
-        sx={{
-          position: 'absolute',
-          width: '25px',
-          height: '18px',
-          left: '82%', 
-          top: '87%', 
-          transform: 'translate(-50%, -50%)', 
-          borderRadius: '2px', 
-        }}
-      />
-    </Box>
-       <Typography
-          variant="h6"
-          sx={{
-            fontFamily: 'Poppins',
-            fontWeight: 'bold',
-            fontSize: '21.6471px',
-            lineHeight: '32px',
-            textAlign: 'center',
-            color:'black',
-            mt: 2,
-          }}
-        >
-          Abhishek Gupta
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            fontFamily: 'Poppins',
-            fontWeight: 900,
-            fontSize: '14.4314px',
-            lineHeight: '22px',
-            textAlign: 'center',
-            color: '#4A77FF',
-          }}
-        >
-         마케팅 · 2y+
-        </Typography>
-
-        {/* Skill Boxes */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            padding: '3.60784px 10.8235px',
-            gap: '9.02px',
-            width: '133.65px',
-            height: '29.22px',
-            border: '0.901961px solid #82BFD5',
-            borderRadius: '5.41177px',
-            color:'black',
-            mt: 1,
-          }}
-        >
-          <Typography variant="body2">마케팅 콘텐츠 제작</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            padding: '3.60784px 10.8235px',
-            gap: '9.02px',
-            width: '133.65px',
-            height: '29.22px',
-            border: '0.901961px solid #82BFD5',
-            borderRadius: '5.41177px',
-            mt: 1,
-            ml: 0,
-            color:'black',
-          }}
-        >
-          <Typography variant="body2">인스타그램 관리</Typography>
-        </Box>
-        <Box
-  sx={{
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: '5.02px', 
-    mt: 1,
-    ml: 0, 
-  
-  }}
->
-  <Box
-    sx={{
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'flex-start',
-      padding: '3.60784px 10.8235px',
-      width: '103.65px',
-      height: '29.22px',
-      border: '0.901961px solid #82BFD5',
-      borderRadius: '5.41177px',
-      color:'black',
-    }}
-  >
-    <Typography variant="body2">트위터 관리</Typography>
-  </Box>
-  
-  <Box
-    sx={{
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'flex-start',
-      padding: '3.60784px 10.8235px',
-      width: '120.65px',
-      height: '29.22px',
-      border: '0.901961px solid #82BFD5',
-      borderRadius: '5.41177px',
-      color:'black',
-    }}
-  >
-    <Typography variant="body2">블로그 글 작성</Typography>
-  </Box>
-</Box>
-
-       
-      </Box>
-
-      {/* Third Card */}
-      <Box
-        sx={{
-          position: 'absolute',
-          width: '259.81px',
-          height: '366.8px',
-          left: '1460px', 
-          top: '200px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: 'white',
-          borderRadius: '16px',
-          boxShadow: 2,
-          p: 2,
-          mt:2,
-        }}
-      >
-          <Box sx={{ position: 'relative', display: 'inline-block' }}>
-      <Avatar
-        src="/assets/card1.png" 
-        alt="John Doe"
-        sx={{
-          width: '108px',
-          height: '108px',
-          borderRadius: '50%',
-        }}
-      />
-      <Box
-        component="img"
-        src="/assets/flag.png"
-        alt="Flag"
-        sx={{
-          position: 'absolute',
-          width: '25px',
-          height: '18px',
-          left: '82%', 
-          top: '87%', 
-          transform: 'translate(-50%, -50%)', 
-          borderRadius: '2px', 
-        }}
-      />
-    </Box>
-       <Typography
-          variant="h6"
-          sx={{
-            fontFamily: 'Poppins',
-            fontWeight: 'bold',
-            fontSize: '21.6471px',
-            lineHeight: '32px',
-            textAlign: 'center',
-            color:'black',
-            mt: 2,
-          }}
-        >
-          Abhishek Gupta
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            fontFamily: 'Poppins',
-            fontWeight: 900,
-            fontSize: '14.4314px',
-            lineHeight: '22px',
-            textAlign: 'center',
-            color: '#4A77FF',
-          }}
-        >
-        마케팅 · 2y+
-        </Typography>
-
-        {/* Skill Boxes */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            padding: '3.60784px 10.8235px',
-            gap: '9.02px',
-            width: '133.65px',
-            height: '29.22px',
-            border: '0.901961px solid #82BFD5',
-            borderRadius: '5.41177px',
-            color:'black',
-            mt: 1,
-          }}
-        >
-          <Typography variant="body2">마케팅 콘텐츠 제작</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            padding: '3.60784px 10.8235px',
-            gap: '9.02px',
-            width: '133.65px',
-            height: '29.22px',
-            border: '0.901961px solid #82BFD5',
-            borderRadius: '5.41177px',
-            color:'black',
-            mt: 1,
-            ml: 5,
-          }}
-        >
-          <Typography variant="body2">인스타그램 관리</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            padding: '3.60784px 10.8235px',
-            gap: '9.02px',
-            width: '133.65px',
-            height: '29.22px',
-            border: '0.901961px solid #82BFD5',
-            borderRadius: '5.41177px',
-            color:'black',
-            mt: 1,
-            ml: -7,
-          }}
-        >
-          <Typography variant="body2">블로그 글 작성</Typography>
-        </Box>
+      {/* User Cards */}
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        {renderCard(userCards[(currentIndex - 1 + userCards.length) % userCards.length], false)} 
+        {renderCard(userCards[currentIndex], true)} 
+        {renderCard(userCards[(currentIndex + 1) % userCards.length], false)} 
       </Box>
     </div>
+    
   );
 };
 

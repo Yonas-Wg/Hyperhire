@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .text-animation {
   @apply animate-pulse;
 }
@@ -20,9 +19,12 @@
 }
 
 body {
+  margin: 0; 
+  padding: 0; 
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 @layer utilities {

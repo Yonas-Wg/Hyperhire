@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 const AnimatedDiv = () => {
   const [offset, setOffset] = useState(0);
-  const width = 332; // The width of your outer div
+  const width = 332;
 
   useEffect(() => {
     const interval = setInterval(() => {
       setOffset((prev) => (prev - width >= -width ? prev - width : 0));
-    }, 5000); // Slide every 5 seconds
+    }, 5000); 
 
-    return () => clearInterval(interval); // Cleanup the interval on unmount
+    return () => clearInterval(interval);
   }, [width]);
 
   return (
@@ -106,7 +106,7 @@ const AnimatedDiv = () => {
         background: 'rgba(255, 255, 255, 0.2)',
         borderRadius: '12px',
         position: 'absolute',
-        left: '700px',
+        left: '660px',
         top: '780px',
         transition: 'transform 0.5s ease-in-out',
         transform: `translateX(${offset}px)`, 
@@ -175,7 +175,7 @@ const AnimatedDiv = () => {
         background: 'rgba(255, 255, 255, 0.2)',
         borderRadius: '12px',
         position: 'absolute',
-        left: '1100px',
+        left: '1020px',
         top: '780px',
         transition: 'transform 0.5s ease-in-out',
         transform: `translateX(${offset}px)`, 
@@ -256,7 +256,7 @@ const AnimatedDiv = () => {
         background: 'rgba(255, 255, 255, 0.2)',
         borderRadius: '12px',
         position: 'absolute',
-        left: '1500px',
+        left: '1380px',
         top: '780px',
         transition: 'transform 0.5s ease-in-out',
         transform: `translateX(${offset}px)`, 
@@ -326,7 +326,7 @@ const AnimatedDiv = () => {
         background: 'rgba(255, 255, 255, 0.2)',
         borderRadius: '12px',
         position: 'absolute',
-        left: '1900px',
+        left: '1740px',
         top: '780px',
         transition: 'transform 0.5s ease-in-out',
         transform: `translateX(${offset}px)`, 
