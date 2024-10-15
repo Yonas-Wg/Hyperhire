@@ -39,7 +39,7 @@ const UserCard: React.FC = () => {
   const renderCard = (user: any, isMiddle: boolean) => {
     return (
 <>
-<Tooltip
+<Tooltip className='section8'
         title="This is the user's information"
         arrow
         enterDelay={500} 
@@ -89,6 +89,7 @@ const UserCard: React.FC = () => {
       </Tooltip>
 
       <Box
+      className='section9'
         key={user.name}
         sx={{
           width: isMiddle ? '300px' : '250px',
@@ -175,10 +176,10 @@ const UserCard: React.FC = () => {
   return (
     <div style={{ position: 'relative', width: '100%', height: '500px', marginLeft: '400px', marginTop:'180px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       {/* Navigation Arrows */}
-      <Box sx={{ position: 'absolute', left: '550px', cursor: 'pointer' }} onClick={handlePrev}>
+      <Box  className='arrow' sx={{ position: 'absolute', left: '550px', cursor: 'pointer' }} onClick={handlePrev}>
         <KeyboardArrowLeftIcon sx={{ fontSize: 60, color: '#fff' }} />
       </Box>
-      <Box sx={{ position: 'absolute', right: '550px', cursor: 'pointer' }} onClick={handleNext}>
+      <Box className='arrow2' sx={{ position: 'absolute', right: '550px', cursor: 'pointer' }} onClick={handleNext}>
         <KeyboardArrowRightIcon sx={{ fontSize: 60, color: '#fff' }} />
       </Box>
 

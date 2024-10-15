@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Menu, MenuItem, IconButton } from '@mui/material';
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+ 
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -19,8 +20,19 @@ const Header = () => {
     handleClose(); 
   };
 
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Function to toggle the mobile menu
+  const toggleMenu = () => {
+    setMobileMenuOpen(prev => !prev);
+  };
+
+
+  
+
   return (
-    <header style={{
+    <header  className="header"
+    style={{
       position: 'absolute',
       width: '1920px',
       height: '60px',
@@ -29,9 +41,10 @@ const Header = () => {
       display: 'flex',
       alignItems: 'center',
      // backgroundColor: '#282c34',
-      padding: '0 20px'
+     padding: '0 20px'
     }}>
-      <div className="relative w-full h-full overflow-hidden cursor-pointer">
+
+      <div className="one relative w-full h-full  overflow-hidden cursor-pointer">
         <svg
           width="31.28"
           height="21"
@@ -61,7 +74,7 @@ const Header = () => {
         </svg>
       </div>
 
-      <h1 style={{
+      <h1 className="h1" style={{
         marginLeft: '10px',
         position: 'absolute',
         left: '3.03%',
@@ -72,9 +85,24 @@ const Header = () => {
       }}>
         hyperhire
       </h1>
+      <div >
+
+  <button 
+    className=" toggle md:hidden p-2 text-white  rounded flex items-center" 
+    onClick={toggleMenu}
+  >
+    <span className="icon">☰</span>
+  </button>
+
+  {/* Header Content */}
+  <div className={`flex flex-col md:flex-row ${isMobileMenuOpen ? 'block' : 'hidden'} md:block`}>
+    <h1 className="text-gray-600 text-base leading-6 font-black">Header Title</h1>
+    {/* Other content */}
+  </div>
+</div>
 
       {/* 채용 Position */}
-      <div style={{
+      <div className='header2' style={{
         marginLeft: '10px',
         position: 'absolute',
         left: '28.03%',
@@ -92,15 +120,17 @@ const Header = () => {
       </div>
 
       {/* Dropdown Button */}
-      <IconButton
+      <IconButton className='header3' 
         onClick={handleClick}
-        style={{ color: '#fff',left: '31.0%',
+        style={{ color: '#fff', left: '31.0%',
             top: '-9.49%', position: 'absolute',}}
       >
         <ArrowDropDownIcon />
       </IconButton>
 
-      <div style={{
+      <div 
+      className='header4' 
+      style={{
         marginLeft: '10px',
         position: 'absolute',
         left: '38.03%',
@@ -116,7 +146,9 @@ const Header = () => {
       }}>
        해외 개발자 활용 서비스
       </div>
-      <div style={{
+      <div 
+      className='header5' 
+      style={{
     display: 'flex',
     justifyContent: 'center', 
     alignItems: 'center', 

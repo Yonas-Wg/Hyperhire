@@ -7,14 +7,14 @@ import { Typography } from '@mui/material';
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col items-start justify-start relative h-104 p-4 pl-80" style={{ backgroundColor: '#FBFBFB' }}>
-            <div className="flex flex-col items-start">
+        <footer className=" footer flex flex-col items-start justify-start relative h-104 p-4 pl-80" style={{ backgroundColor: '#FBFBFB' }}>
+            <div className="  flex flex-col items-start">
                 <Image
                     src="/assets/hyperlogo.jpg" 
                     alt="hyperhire logo"
                     width={187}
                     height={34}
-                    className="w-auto h-auto"
+                    className=" w-auto h-auto"
                 />
                 <p className="mt-2 text-left text-gray-700">
                     우리는 국가의 장벽을 넘어 최고의 인재를 매<br/>칭해드립니다.
@@ -26,7 +26,7 @@ const Footer = () => {
                     aaaaa@naver.com
                 </p>
 
-                <div className="absolute" style={{ left: '850px', top: '19px', width: '187px', height: '142px', background: '#fff', borderRadius: '12px', padding: '16px', gap: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                <div className="absolute footer1" style={{ left: '850px', top: '19px', width: '187px', height: '142px', background: '#fff', borderRadius: '12px', padding: '16px', gap: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
          <div style={{ 
             width: '40px', 
             height: '40px', 
@@ -88,7 +88,7 @@ const Footer = () => {
             </div>
         </div>
 
-        <div className="absolute" style={{ left: '1080px', top: '19px', width: '187px', height: '142px', background: '#fff', borderRadius: '12px', padding: '16px', gap: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <div className="absolute footer2" style={{ left: '1080px', top: '19px', width: '187px', height: '142px', background: '#fff', borderRadius: '12px', padding: '16px', gap: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
          <div style={{ 
             width: '40px', 
             height: '40px', 
@@ -150,7 +150,7 @@ const Footer = () => {
             </div>
         </div>
 
-        <div className="absolute" style={{ left: '1310px', top: '19px', width: '187px', height: '142px', background: '#fff', borderRadius: '12px', padding: '16px', gap: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <div className="absolute footer3" style={{ left: '1310px', top: '19px', width: '187px', height: '142px', background: '#fff', borderRadius: '12px', padding: '16px', gap: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
          <div style={{ 
             width: '40px', 
             height: '40px', 
@@ -208,7 +208,7 @@ const Footer = () => {
             </div>
         </div>
 
-        <div className="absolute" style={{ left: '1540px', top: '19px', width: '187px', height: '142px', background: '#fff', borderRadius: '12px', padding: '16px', gap: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <div className="absolute footer4" style={{ left: '1540px', top: '19px', width: '187px', height: '142px', background: '#fff', borderRadius: '12px', padding: '16px', gap: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
          <div style={{ 
             width: '40px', 
             height: '40px', 
@@ -271,16 +271,17 @@ const Footer = () => {
         </div>
         
                 {/* Horizontal Header Information */}
-                <div className="flex flex-col mt-16">
-                    <div className="flex justify-start space-x-64"> 
-                        <p className="text-gray-600 text-base leading-6 font-black">상호명</p>
-                        <p className="text-gray-600 text-base leading-6 font-black">대표 CEO</p>
-                        <p className="text-gray-600 text-base leading-6 font-black">사업자등록번호 CIN</p>
-                        <p className="text-gray-600 text-base leading-6 font-black">주소 ADDRESS</p>
-                    </div>
+                <div className="  flex flex-col mt-16">
+                <div className="flex footer5 justify-start space-x-4 md:space-x-64">
+    <p className="text-gray-600 text-base leading-6 font-black">상호명</p>
+    <p className="text-gray-600 text-base leading-6 font-black">대표 CEO</p>
+    <p className="text-gray-600 text-base leading-6 font-black">사업자등록번호 CIN</p>
+    <p className="text-gray-600 text-base leading-6 font-black">주소 ADDRESS</p>
+</div>
+
 
                     {/* Details Section */}
-                    <div className="flex justify-start space-x-52 mt-2"> 
+                    <div className="flex footer6 justify-start space-x-4 md:space-x-52"> 
                         <p className="text-gray-400 text-base leading-6 font-black">하이퍼하이어</p>
                         <p className="text-gray-400 text-base leading-6 font-black">김주현</p>
                         <p className="text-gray-400 text-base leading-6 font-black pl-20">427-86-01187</p>
@@ -290,7 +291,7 @@ const Footer = () => {
 
                 {/* International Information Section */}
                 <div className="flex flex-col mt-4">
-                    <div className="flex justify-start space-x-8"> {/* Align to start */}
+                    <div className="flex footer8 justify-start  space-x-4 md:space-x-8"> 
                         <p className="text-left text-gray-400 text-base leading-6 font-black">
                             Hyperhire India Private Limited
                         </p>

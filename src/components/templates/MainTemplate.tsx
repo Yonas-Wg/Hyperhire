@@ -16,14 +16,30 @@ const Main = () => {
         return () => clearTimeout(timer);
     }, []);
 
+    const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileScreen(window.innerWidth <= 768); 
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize); 
+
+    return () => {
+      window.removeEventListener('resize', handleResize); 
+    };
+  }, []);
+
     return (
         <>
             {/* Main Text Section */}
-            <div style={{
+            <div className='section' style={{
                 position: 'absolute',
                 width: '681px',
                 height: '124px',
-                left: '300px',
+                left: isMobileScreen ? '10px' : '300px',
                 top: '264px',
                 display: 'flex',
                 flexDirection: 'column', 
@@ -44,7 +60,9 @@ const Main = () => {
             </div>
 
             {/* Fade-In Box Section */}
-            <div style={{
+            <div 
+            className='section1' 
+            style={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -87,7 +105,9 @@ const Main = () => {
                 }} />
             </div>
 
-            <div style={{
+            <div 
+            className='section2' 
+            style={{
     width: '456px',
     height: '68px',
     marginTop: '12px',
@@ -114,7 +134,9 @@ const Main = () => {
 </div>
 
               
-            <div style={{
+            <div 
+              className='section3' 
+              style={{
     width: '456px',
     height: '68px',
     marginTop: '12px',
@@ -138,7 +160,8 @@ const Main = () => {
                 </div>
 
                 
-    <div style={{
+    <div 
+    className='section4' style={{
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -180,7 +203,8 @@ const Main = () => {
                 </div>
 
 
-                <div style={{
+                <div 
+                 className='section5' style={{
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -223,7 +247,7 @@ const Main = () => {
 
 
 
-        <div style={{
+        <div  className='section6' style={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-start',

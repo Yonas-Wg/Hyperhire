@@ -22,17 +22,17 @@ const HomePage = async () => {
   return (
     <>
       <div
-        className="flex flex-col"
+        className="flex flex-col home-background"
         style={{
-          width: '100vw', // Full viewport width
-          height: '100vh', // Full viewport height
+          width: '100vw', 
+          height: '110vh', 
           background: `linear-gradient(151.17deg, rgba(38, 194, 185, 0.8) 8.69%, rgba(40, 139, 231, 0.8) 86.06%), url('/assets/hyperhire.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          margin: '0', // Remove margin
+          margin: '0',
           overflowX: 'hidden', 
-          overflowY: 'auto',
-          boxSizing: 'border-box', // Include padding/borders in width/height
+          overflowY: 'auto', 
+          boxSizing: 'border-box',
         }}
       >
         <Header />

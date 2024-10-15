@@ -13,8 +13,9 @@ const AnimatedDiv = () => {
   }, [width]);
 
   return (
-    <div>
+    <div  className='section711' >
     <div
+   className='section7'
       style={{
         display: 'flex',
         flexDirection: 'row',
@@ -94,7 +95,7 @@ const AnimatedDiv = () => {
     </div>
 
 
-<div
+<div className='section1'
       style={{
         display: 'flex',
         flexDirection: 'row',
@@ -163,7 +164,7 @@ const AnimatedDiv = () => {
 
 
 
-<div
+<div className='section2'
       style={{
         display: 'flex',
         flexDirection: 'row',
@@ -244,7 +245,7 @@ const AnimatedDiv = () => {
 
 
 
-<div
+<div className='section73'
       style={{
         display: 'flex',
         flexDirection: 'row',
@@ -314,7 +315,7 @@ const AnimatedDiv = () => {
 
 
 
-<div
+<div className='section74'
       style={{
         display: 'flex',
         flexDirection: 'row',
