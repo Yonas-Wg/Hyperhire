@@ -1,4 +1,4 @@
-'use client'; // Ensures the component runs on the client-side
+'use client';
 
 import React, { useState } from 'react';
 import { Box, Typography, Avatar , Tooltip} from '@mui/material';
@@ -65,7 +65,7 @@ const UserCard: React.FC = () => {
           </div>
           
           {/* Text Element */}
-          <div className="flex flex-row items-center">
+          <div className="flex section81 flex-row items-center">
             <span className="text-[17px] text-gray-800 " style={{color: '#00C696', fontWeight:'bold'}}>월 100만원</span>
           </div>
           
