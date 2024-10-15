@@ -4,21 +4,23 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Menu, MenuItem, IconButton } from '@mui/material';
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
  
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget); 
   };
-
+  
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const handleSelect = (value) => {
+  
+  
+  const handleSelect = (value: string) => {
     console.log(value); 
     handleClose(); 
   };
+  
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
