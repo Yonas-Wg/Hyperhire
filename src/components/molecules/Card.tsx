@@ -36,7 +36,7 @@ const UserCard: React.FC = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + userCards.length) % userCards.length);
   };
 
-  const renderCard = (user: unknown, isMiddle: boolean) => {
+  const renderCard = (user: any, isMiddle: boolean) => {
     return (
 <>
 <Tooltip className='section8'
